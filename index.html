@@ -4,34 +4,62 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/light.css">
-  <title>Kalkulator Sederhana</title>
+  <title>Calculaator Kelompok 3</title>
+
+  <!--Conect the html to the style.css in folder css-->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="calculator">
-    <div class="output">
-      <span class="result">0</span>
+  <div class="container">
+    <div class="dark_mod">
+      <span class="dark">&#9790;</span>
+      <span class="light">&#9728;</span>
     </div>
+    <form>
+      <!--Create Result Box-->
+      <div class="resultBox">
+        <input type="text" readonly>
+        <input type="text" readonly>
+      </div>
+      <!--Create buttons-->
     <div class="buttons">
-      <button class="operator" value="+">+</button>
-      <button class="operator" value="-">-</button>
-      <button class="operator" value="*">x</button>
-      <button class="operator" value="/">/</button>
-      <button value="7">7</button>
-      <button value="8">8</button>
-      <button value="9">9</button>
-      <button value="4">4</button>
-      <button value="5">5</button>
-      <button value="6">6</button>
-      <button value="1">1</button>
-      <button value="2">2</button>
-      <button value="3">3</button>
-      <button value="0">0</button>
-      <button id="clear" value="clr">C</button>
-      <button id="equal" value="eql">=</button>
-    </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="js/app.js"></script>
+        <!--Create Button clear, delete, division and multiplication operators-->
+        <div>
+          <input type="button" value="AC" class="fnkeys" onclick="expression.value = ''; result.value = ''"">
+          <input type="button" value="delete" class="fnkeys" onclick="expression.value = expression.value.toString().slice(0,-1)">
+          <input type="button" value="÷" class="operator" onclick="expression.value += '÷'">
+          <input type="button" value="x" class="operator" onclick="expression.value += 'x'">
+        </div>
+        <!--Create buttons from 7 until 9 and reduction operation-->
+        <div>
+          <input type="button" value="7" onclick="expression.value += '7'">
+          <input type="button" value="8" onclick="expression.value += '8'">
+          <input type="button" value="9" onclick="expression.value += '9'">
+          <input type="button" value="-" class="operator" onclick="expression.value += '-'">
+        </div>
+        <!--Create buttons from 4 until 6 and  plus operation-->
+        <div>
+          <input type="button" value="4" onclick="expression.value += '4'">
+          <input type="button" value="5" onclick="expression.value += '5'">
+          <input type="button" value="6" onclick="expression.value += '6'">
+          <input type="button" value="+" class="operator" onclick="expression.value += '+'">
+        </div>
+        <!--Create buttons from 1 until 3 and coma -->
+        <div>
+          <input type="button" value="1" onclick="expression.value += '1'">
+          <input type="button" value="2" onclick="expression.value += '2'">
+          <input type="button" value="3" onclick="expression.value += '3'">
+          <input type="button" value="." class="operator" onclick="expression.value += '.'">
+        </div>
+        <!--Create button zero and results operation-->
+        <div>
+          <input type="button" value="00" onclick="expression.value += '00'">
+          <input type="button" value="0" onclick="expression.value += '0'">
+          <input type="button" value="=" class="operator equal" onclick="result.value = new int1.NumberFormat().format(eval(expression.value))">
+        </div>
+      </div>
+    </form>
+  </div> 
+  
 </body>
 </html>
